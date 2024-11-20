@@ -4,8 +4,8 @@ import Quiz_2 from "./components/Quiz_2.vue";
 </script>
 
 <template>
-    <Quiz_1/>
-<!--    <Quiz_2/>-->
+    <!-- <Quiz_1/> -->
+   <Quiz_2 :niveau_actuel="3" :niveau_max="10" />
 
 </template>
 
