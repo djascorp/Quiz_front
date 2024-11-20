@@ -1,11 +1,15 @@
 <script setup>
 import Quiz_1 from "./components/Quiz_1.vue";
 import Quiz_2 from "./components/Quiz_2.vue";
+
+const onClickLevel = (level) => {
+  console.log("NIVEAU CLICKÉ",level);
+}
 </script>
 
 <template>
-    <Quiz_1/>
-<!--    <Quiz_2/>-->
+    <!-- <Quiz_1/> -->
+   <Quiz_2 :niveau_actuel="3" :niveau_max="15" @click-level="onClickLevel" />
 
 </template>
 

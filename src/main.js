@@ -8,8 +8,11 @@ import Antdv from "ant-design-vue";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
+import VueKonva from "vue-konva";
+
 const app = createApp(App);
 
 app.use(AOS.init());
-app.use(Antdv)
+app.use(Antdv);
+app.use(VueKonva);
 app.mount('#app')
