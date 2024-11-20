@@ -9,7 +9,7 @@ const onClickLevel = (level) => {
 
 <template>
     <!-- <Quiz_1/> -->
-   <Quiz_2 :niveau_actuel="3" :niveau_max="10" @click-level="onClickLevel" />
+   <Quiz_2 :niveau_actuel="3" :niveau_max="15" @click-level="onClickLevel" />
 
 </template>
 

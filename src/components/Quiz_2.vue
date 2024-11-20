@@ -2,6 +2,7 @@
 import {computeNumberOfPoint, generateSinusoidalPath, generateSmoothPath, visualizePath} from "../utils/fonctions.js";
 import NiveauButtons from "./NiveauButtons.vue";
 import {NUMBER_OF_POINT_BETWEEN_LEVEL} from "../utils/contant.js";
+import {computed} from "vue";
 
 const emit = defineEmits(['click-level']);
 const props = defineProps({
@@ -31,14 +32,17 @@ const levelDot = {
 
 
 // Exemple d'utilisation
-const startPosition = {x: parseInt(configKonva.width / 2), y: configKonva.height - 40}; // Point de départ
-const {points, levels} = generateSinusoidalPath(
+const getPoints = () => generateSinusoidalPath(
     startPosition,
     computeNumberOfPoint(props.niveau_max, NUMBER_OF_POINT_BETWEEN_LEVEL),      // Calculer le nombre des points
     20,     // espacement vertical
     250,    // amplitude (largeur du zigzag)
     NUMBER_OF_POINT_BETWEEN_LEVEL
 );
+const points = computed(() => getPoints().points);
+const levels = computed(() => getPoints().levels);
+const startPosition = {x: parseInt(configKonva.width / 2), y: configKonva.height - 40}; // Point de départ
+
 
 const onClickLevel = (level) => {
   emit('click-level', level);
@@ -52,7 +56,7 @@ const onClickLevel = (level) => {
       <v-layer >
         <v-group>
           <v-circle v-for="pos in points" :config="{x:pos.x, y: pos.y ,...levelDot}"></v-circle>
-          <NiveauButtons :levels="levels" @click-level="onClickLevel" />
+          <NiveauButtons :niveau_actuel="niveau_actuel" :levels="levels" @click-level="onClickLevel" />
         </v-group>
 
       </v-layer>
