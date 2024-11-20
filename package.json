@@ -11,8 +11,10 @@
   "dependencies": {
     "ant-design-vue": "^4.2.6",
     "aos": "^2.3.4",
+    "konva": "^9.3.16",
     "tailwindcss-motion": "^0.4.3-beta",
-    "vue": "^3.5.12"
+    "vue": "^3.5.12",
+    "vue-konva": "^3.1.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
