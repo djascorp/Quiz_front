@@ -1,0 +1,1 @@
+export const NUMBER_OF_POINT_BETWEEN_LEVEL = 10;
